@@ -1,0 +1,14 @@
+[package]
+name = "rocketsim"
+version = "0.1.0"
+authors = ["Junyeong Park <jyp10987@gmail.com>"]
+description = "Rocket simulation engine"
+repository = "https://github.com/JYPark09/RocketSim"
+license = "MIT"
+edition = "2018"
+
+[lib]
+name = "rocketsim"
+path = "../../src/lib.rs"
+
+[dependencies]
