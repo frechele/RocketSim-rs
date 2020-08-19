@@ -1,6 +1,6 @@
-const GEOPOTENTIAL_HEIGHTS: [f32; 8] = [-610.0, 11000.0, 20000.0, 32000.0, 47000.0, 51000.0, 71000.0, 84852.0]; // meter
-const TEMPERATURES: [f32; 8] = [292.15, 216.65, 216.65, 228.65, 270.65, 270.65, 214.65, 186.87]; // kelvin
-const PRESSURES: [f32; 8] = [108900.0, 22632.0, 5474.9, 868.02, 110.91, 66.939, 3.9564, 0.3734]; // pascals
+const GEOPOTENTIAL_HEIGHTS: [f32; 9] = [-610.0, 11000.0, 20000.0, 32000.0, 47000.0, 51000.0, 71000.0, 84852.0, 90000.0]; // meter
+const TEMPERATURES: [f32; 9] = [292.15, 216.65, 216.65, 228.65, 270.65, 270.65, 214.65, 186.87, 186.87]; // kelvin
+const PRESSURES: [f32; 9] = [108900.0, 22632.0, 5474.9, 868.02, 110.91, 66.939, 3.9564, 0.3734, 0.000064]; // pascals
 
 pub struct AtmosphereDynamic {
     pub temperature: f32,
@@ -15,7 +15,7 @@ fn get_level(altitude: f32) -> usize {
         }
     }
 
-    GEOPOTENTIAL_HEIGHTS.len() - 1
+    GEOPOTENTIAL_HEIGHTS.len() - 2
 }
 
 pub fn atmosisa(altitude: f32) -> AtmosphereDynamic {
@@ -35,7 +35,7 @@ pub fn atmosisa(altitude: f32) -> AtmosphereDynamic {
 
     let temperature = TEMPERATURES[level] + delta * lapse;
     let pressure: f32 = if lapse.abs() < 1e-10 {
-        PRESSURES[level] * (1.0 + (-G * M * delta / (R * temperature)).exp())
+        PRESSURES[level] * (-G * M * delta / (R * temperature)).exp()
     } else {
         PRESSURES[level] * (1.0 + lapse * delta / TEMPERATURES[level]).powf(-G * M / (R * lapse))
     };
