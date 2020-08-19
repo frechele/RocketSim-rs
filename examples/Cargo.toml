@@ -1,0 +1,12 @@
+[package]
+name = "examples"
+version = "0.1.0"
+authors = ["Junyeong Park <jyp10987@gmail.com>"]
+edition = "2018"
+
+[dependencies.rocketsim]
+path = "../build/rocketsim"
+
+[[bin]]
+name = "atmosphere_to_csv"
+path = "atmosphere_to_csv.rs"

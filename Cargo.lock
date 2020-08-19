@@ -29,6 +29,13 @@ version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
+name = "examples"
+version = "0.1.0"
+dependencies = [
+ "rocketsim 0.1.0",
+]
+
+[[package]]
 name = "generic-array"
 version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
