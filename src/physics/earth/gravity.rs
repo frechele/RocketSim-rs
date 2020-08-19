@@ -1,7 +1,5 @@
-use std::f32::consts as f32_consts;
-
 pub fn gravity(latitude: f32, altitude: f32) -> f32 {
-    let phi = latitude * f32_consts::PI / 360.0;
+    let phi = latitude.to_radians();
 
     const G_EQUATOR: f32 = 9.7803267714;
     const K: f32 = 0.0019185138639;
