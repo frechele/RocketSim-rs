@@ -1,1 +1,2 @@
-pub mod earth;
+pub mod atmosphere;
+pub mod gravity;

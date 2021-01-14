@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::{ Write, Error };
 
-use rocketsim::physics::earth::atmosphere;
+use rocketsim::physics::atmosphere;
 
 fn main() -> Result<(), Error> {
     let mut file = match  File::create("atmosphere.csv") {
