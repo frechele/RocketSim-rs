@@ -1,11 +1,11 @@
 use std::ops::{Add, Sub};
 
-pub struct Force {
+pub struct Vector2D {
 	pub x: f32,
 	pub y: f32
 }
 
-impl Force {
+impl Vector2D {
 	pub fn create(length: f32, radian: f32) -> Self {
 		Self {
 			x: length * radian.cos(),
@@ -31,7 +31,7 @@ impl Force {
 	}
 }
 
-impl Add for Force {
+impl Add for Vector2D {
 	type Output = Self;
 
 	fn add(self, other: Self) -> Self {
@@ -42,7 +42,7 @@ impl Add for Force {
 	}
 }
 
-impl Sub for Force {
+impl Sub for Vector2D {
 	type Output = Self;
 
 	fn sub(self, other: Self) -> Self {
